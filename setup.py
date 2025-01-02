@@ -24,12 +24,12 @@ def install_dependencies():
     #     "dust3r/checkpoints/"
     # ], check=True)
     subprocess.run(["mkdir", "-p", "mast3r/checkpoints"], check=True)
-    # subprocess.run([
-    #     "wget",
-    #     "https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
-    #     "-P",
-    #     "mast3r/checkpoints/"
-    # ], check=True)
+    subprocess.run([
+        "wget",
+        "https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
+        "-P",
+        "mast3r/checkpoints/"
+    ], check=True)
 
     # Install additional editable packages
     subprocess.run(["pip", "install", "-e", "gaussian-splatting/submodules/diff-gaussian-rasterization"], check=True)
