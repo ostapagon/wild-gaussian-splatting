@@ -7,6 +7,29 @@ import subprocess
 def install_dependencies():
     print("Installing dependencies...")
 
+        cuda_home = subprocess.getoutput('echo $CUDA_HOME')
+    print(f"CUDA Path: {cuda_home}")
+
+    # Print nvcc version
+    try:
+        nvcc_version = subprocess.getoutput('nvcc --version')
+        print("nvcc Version:")
+        print(nvcc_version)
+    except FileNotFoundError:
+        print("nvcc is not installed or not in PATH.")
+
+    # Print PyTorch version and CUDA compatibility
+    try:
+        import torch
+        print('PyTorch Version:', torch.__version__)
+        print('CUDA Available:', torch.cuda.is_available())
+        if torch.cuda.is_available():
+            print('CUDA Version:', torch.version.cuda)
+            print('CUDA Device Count:', torch.cuda.device_count())
+            print('CUDA Device Name:', torch.cuda.get_device_name(0))
+    except ImportError:
+        print("PyTorch is not installed.")
+
     # subprocess.run(["pip", "install", "-r", "dust3r/requirements.txt"], check=True)
     # subprocess.run(["pip", "install", "-r", "dust3r/requirements_optional.txt"], check=True)
     # subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
