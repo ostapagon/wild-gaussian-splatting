@@ -7,7 +7,7 @@ import subprocess
 def install_dependencies():
     print("Installing dependencies...")
 
-        cuda_home = subprocess.getoutput('echo $CUDA_HOME')
+    cuda_home = subprocess.getoutput('echo $CUDA_HOME')
     print(f"CUDA Path: {cuda_home}")
 
     # Print nvcc version
