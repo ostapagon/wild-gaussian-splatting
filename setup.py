@@ -7,9 +7,9 @@ import subprocess
 def install_dependencies():
     print("Installing dependencies...")
 
-    subprocess.run(["pip", "install", "-r", "dust3r/requirements.txt"], check=True)
-    subprocess.run(["pip", "install", "-r", "dust3r/requirements_optional.txt"], check=True)
-    subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
+    # subprocess.run(["pip", "install", "-r", "dust3r/requirements.txt"], check=True)
+    # subprocess.run(["pip", "install", "-r", "dust3r/requirements_optional.txt"], check=True)
+    # subprocess.run(["pip", "install", "-r", "requirements.txt"], check=True)
 
 
     # Compile RoPE positional embeddings
@@ -23,13 +23,13 @@ def install_dependencies():
     #     "-P",
     #     "dust3r/checkpoints/"
     # ], check=True)
-    subprocess.run(["mkdir", "-p", "mast3r/checkpoints"], check=True)
-    subprocess.run([
-        "wget",
-        "https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
-        "-P",
-        "mast3r/checkpoints/"
-    ], check=True)
+    # subprocess.run(["mkdir", "-p", "mast3r/checkpoints"], check=True)
+    # subprocess.run([
+    #     "wget",
+    #     "https://download.europe.naverlabs.com/ComputerVision/MASt3R/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric.pth",
+    #     "-P",
+    #     "mast3r/checkpoints/"
+    # ], check=True)
 
     # Install additional editable packages
     subprocess.run(["pip", "install", "-e", "gaussian-splatting/submodules/diff-gaussian-rasterization"], check=True)
@@ -58,13 +58,6 @@ setup(
         'jupyterlab==3.4.2',
         'lovely-tensors==0.1.15',
     ],
-    extras_require={
-        'dust3r': [
-            'torch',
-            'torchvision',
-            'torchaudio',
-        ]
-    },
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
