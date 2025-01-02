@@ -7,9 +7,7 @@ import subprocess
 def install_dependencies():
     print("Installing dependencies...")
 
-    os.environ['CUDA_HOME'] = '/usr/local/cuda'
     os.environ['FORCE_CUDA'] = '1'
-    print(f"CUDA_HOME set to: {os.environ['CUDA_HOME']}")
     print(f"FORCE_CUDA set to: {os.environ['FORCE_CUDA']}")
     cuda_home = subprocess.getoutput('echo $CUDA_HOME')
     print(f"CUDA Path: {cuda_home}")
